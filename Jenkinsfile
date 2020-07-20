@@ -37,16 +37,18 @@ pipeline {
         
         terraform show -json ./terraform.tfplan > ./terraform.tfplan.json
         echo "THE PLAN IS SHOWN - 3"
-        #------------------
+        echo "THE PLAN HAS BEEN APPLIED - 4"
+        '''
+      }
+      steps {
+        //#------------------
         def sout = new StringBuffer(), serr = new StringBuffer()
         def proc ='./pipeline-script.sh'.execute()
 
         proc.consumeProcessOutput(sout, serr)
         proc.waitForOrKill(1000)
         println sout
-        #------------------
-        echo "THE PLAN HAS BEEN APPLIED - 4"
-        '''
+        //#------------------
       }
     }
     // [END tf-init, tf-validate]
