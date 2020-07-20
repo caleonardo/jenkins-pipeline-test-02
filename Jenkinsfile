@@ -30,10 +30,16 @@ pipeline {
         sh '''
 
         cd 0-bootstrap/modules/jenkins-agent/
+        echo "WE GOT TO THE FOLDER - 1"
         terraform init
-        terraform plan
-        echo "WE GOT HERE"
-
+        terraform plan --out=terraform.tfplan
+        echo "THE PLAN IS COMPLETE - 2"
+        
+        terraform show -json ./terraform.tfplan > ./terraform.tfplan.json
+        echo "THE PLAN IS SHOWN - 3"
+        
+        terraform apply ./terraform.tfplan
+        echo "THE PLAN HAS BEEN APPLIED - 4"
         '''
       }
     }
