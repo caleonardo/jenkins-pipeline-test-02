@@ -39,14 +39,17 @@ pipeline {
         echo "THE PLAN IS SHOWN - 3"
         #echo "THE PLAN HAS BEEN APPLIED - 4"
         '''
-        //#------------------
-        def sout = new StringBuffer(), serr = new StringBuffer()
-        def proc ='./pipeline-script.sh'.execute()
 
-        proc.consumeProcessOutput(sout, serr)
-        proc.waitForOrKill(1000)
-        println sout
-        //#------------------
+        script {
+          //#------------------
+          def sout = new StringBuffer(), serr = new StringBuffer()
+          def proc ='./pipeline-script.sh'.execute()
+
+          proc.consumeProcessOutput(sout, serr)
+          proc.waitForOrKill(1000)
+          println sout
+          //#------------------
+        }
       }
     }
     // [END tf-init, tf-validate]
