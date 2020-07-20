@@ -38,7 +38,7 @@ pipeline {
         terraform show -json ./terraform.tfplan > ./terraform.tfplan.json
         echo "THE PLAN IS SHOWN - 3"
         
-        set -e
+        #set -e
 
         active_account=""
         function get-active-account() {
@@ -56,7 +56,7 @@ pipeline {
         }
 
         function service-account-usage() {
-          cat <<EOF
+          cat <<-EOF
         No account is set. This is either provided by the Google cloud builder environment, or by providing a
         key file through environment variables, e.g. set
           GCLOUD_SERVICE_KEY=<base64 encoded service account key file>
@@ -65,7 +65,7 @@ pipeline {
         }
 
         function account-active-warning() {
-          cat <<EOF
+          cat <<-EOF
         A service account key file has been provided in the environment variable GCLOUD_SERVICE_KEY. This account will
         be activated, which will override the account already activated in this container.
         This usually happens if you've defined the GCLOUD_SERVICE_KEY environment variable in a cloudbuild.yaml file & this is
