@@ -37,7 +37,7 @@ pipeline {
         
         terraform show -json ./terraform.tfplan > ./terraform.tfplan.json
         echo "THE PLAN IS SHOWN - 3"
-        echo "THE PLAN HAS BEEN APPLIED - 4"
+        #echo "THE PLAN HAS BEEN APPLIED - 4"
         '''
       }
       steps {
