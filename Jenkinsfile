@@ -39,8 +39,6 @@ pipeline {
         echo "THE PLAN IS SHOWN - 3"
         #echo "THE PLAN HAS BEEN APPLIED - 4"
         '''
-      }
-      steps {
         //#------------------
         def sout = new StringBuffer(), serr = new StringBuffer()
         def proc ='./pipeline-script.sh'.execute()
