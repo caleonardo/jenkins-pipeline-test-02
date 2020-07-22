@@ -7,7 +7,7 @@ pipeline {
       steps {
           sh '''
           cd build
-          ./tf-wrapper2.sh init $BRANCH_NAME
+          ./tf-wrapper.sh init $BRANCH_NAME
           '''
       }
     }
@@ -15,7 +15,7 @@ pipeline {
       steps {
           sh '''
           cd build
-          ./tf-wrapper2.sh plan $BRANCH_NAME
+          ./tf-wrapper.sh plan $BRANCH_NAME
           '''
         }
     }
@@ -23,7 +23,7 @@ pipeline {
       steps {
           sh '''
           cd build
-          ./tf-wrapper2.sh validate $BRANCH_NAME $POLICY_REPO
+          ./tf-wrapper.sh validate $BRANCH_NAME $POLICY_REPO
           '''
         }
     }
@@ -31,7 +31,7 @@ pipeline {
       steps {
           sh '''
           cd build
-          ./tf-wrapper2.sh apply $BRANCH_NAME
+          ./tf-wrapper.sh apply $BRANCH_NAME
           '''
         }
     }
