@@ -5,14 +5,16 @@ pipeline {
   stages {
     stage('TF init') {
       steps {
-          sh ./build/tf-wrapper.sh init $BRANCH_NAME
+          sh '''
+          ./build/tf-wrapper2.sh init $BRANCH_NAME
+          '''
       }
     }
     stage('TF plan') {
       steps {
           sh '''
           cd build
-          ./tf-wrapper.sh plan $BRANCH_NAME
+          ./tf-wrapper2.sh plan $BRANCH_NAME
           '''
         }
     }
@@ -20,7 +22,7 @@ pipeline {
       steps {
           sh '''
           cd build
-          ./tf-wrapper.sh validate $BRANCH_NAME $POLICY_REPO
+          ./tf-wrapper2.sh validate $BRANCH_NAME $POLICY_REPO
           '''
         }
     }
@@ -28,7 +30,7 @@ pipeline {
       steps {
           sh '''
           cd build
-          ./tf-wrapper.sh apply $BRANCH_NAME
+          ./tf-wrapper2.sh apply $BRANCH_NAME
           '''
         }
     }
