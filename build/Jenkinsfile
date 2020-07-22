@@ -5,11 +5,8 @@ pipeline {
   stages {
     stage('TF init') {
       steps {
-          sh '''
-          cd build
-          ./tf-wrapper.sh init $BRANCH_NAME
-          '''
-        }
+          sh ./build/tf-wrapper.sh init $BRANCH_NAME
+      }
     }
     stage('TF plan') {
       steps {
