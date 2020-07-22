@@ -16,7 +16,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "UPDATE_ME"
+    bucket = "cft-tfstate-2476"
     prefix = "terraform/org/state"
   }
 }
