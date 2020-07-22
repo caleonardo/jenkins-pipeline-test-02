@@ -72,6 +72,7 @@ case "$1" in
 
     echo "WHAT DIRECTORY ARE WE IN?"
     echo "`pwd`"
+    cd ../1-org/
     cd "./envs/${branchname}" || exit 44
 
     tf_init
