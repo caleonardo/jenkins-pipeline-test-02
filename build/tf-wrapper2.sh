@@ -70,6 +70,8 @@ case "$1" in
     echo "      At environment: ${branchname} "
     echo "**************************************************"
 
+    echo "WHAT DIRECTORY ARE WE IN?"
+    echo "`pwd`"
     cd "./envs/${branchname}" || exit 44
 
     tf_init
