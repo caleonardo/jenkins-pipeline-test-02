@@ -72,8 +72,8 @@ case "$1" in
 
     echo "WHAT DIRECTORY ARE WE IN?"
     echo "`pwd`"
-    cd ../1-org/
-    cd "./envs/${branchname}" || exit 44
+    cd ../1-org/envs/shared || exit 44
+    # cd "./envs/${branchname}" || exit 44
 
     tf_init
     ;;
@@ -83,7 +83,8 @@ case "$1" in
     echo "      At environment: ${branchname} "
     echo "**************************************************"
 
-    cd "./envs/${branchname}" || exit 44
+    cd ../1-org/envs/shared || exit 44
+    # cd "./envs/${branchname}" || exit 44
 
     if [ ! -d ".terraform" ]; then
       tf_init
@@ -98,7 +99,8 @@ case "$1" in
     echo "      Using policy from: ${policyrepo} "
     echo "****************************************************"
 
-    cd "./envs/${branchname}" || exit 44
+    cd ../1-org/envs/shared || exit 44
+    # cd "./envs/${branchname}" || exit 44
 
     if [ ! -d ".terraform" ]; then
       tf_init
