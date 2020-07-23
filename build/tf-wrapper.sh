@@ -72,6 +72,12 @@ case "$1" in
 
     echo "WHAT DIRECTORY ARE WE IN?"
     echo "`pwd`"
+    echo "1 - -----------------------------------"
+    
+    echo "SEE THE OUTPUT FOR gcloud auth list"
+    gcloud auth list
+    echo "2 - -----------------------------------"
+    
     cd ../1-org/envs/shared || exit 44
     # cd "./envs/${branchname}" || exit 44
 
