@@ -18,7 +18,8 @@ echo "STARTING tf-wrapper HERE-"
 branchname=$2
 policyrepo=$3
 
-tf_validator_path="./terraform-validator-linux-amd64"
+#tf_validator_path="./terraform-validator-linux-amd64"
+tf_validator_path="/usr/local/bin/terraform-validator"
 
 ##functions
 tf_apply() {
@@ -70,25 +71,25 @@ case "$1" in
     echo "      At environment: ${branchname} "
     echo "**************************************************"
     
-    echo "1 - WHAT DIRECTORY ARE WE IN?"
-    echo "`pwd`"
-    echo "1 - -----------------------------------"
-    
-    echo "2 - SEE THE OUTPUT FOR gcloud auth list"
-    gcloud auth list
-    echo "2 - -----------------------------------"
-    
-    echo "3 - CHANGE THE ACCOUT WITH gcloud config set account org-terraform@cft-seed-fe85.iam.gserviceaccount.com"
-    gcloud config set account org-terraform@cft-seed-fe85.iam.gserviceaccount.com
-    echo "3 - -----------------------------------"
-    
-    echo "3.1 - IMPERSONATE THE TERRAFORM ACCOUNT gcloud config set auth/impersonate_service_account org-terraform@cft-seed-fe85.iam.gserviceaccount.com"
-    gcloud config set auth/impersonate_service_account org-terraform@cft-seed-fe85.iam.gserviceaccount.com
-    echo "3.1 - -----------------------------------"
-    
-    echo "4 - SEE THE NEW OUTPUT FOR gcloud auth list"
-    gcloud auth list
-    echo "4 - -----------------------------------"
+    #     echo "1 - WHAT DIRECTORY ARE WE IN?"
+    #     echo "`pwd`"
+    #     echo "1 - -----------------------------------"
+
+    #     echo "2 - SEE THE OUTPUT FOR gcloud auth list"
+    #     gcloud auth list
+    #     echo "2 - -----------------------------------"
+
+    #     echo "3 - CHANGE THE ACCOUT WITH gcloud config set account org-terraform@cft-seed-fe85.iam.gserviceaccount.com"
+    #     gcloud config set account org-terraform@cft-seed-fe85.iam.gserviceaccount.com
+    #     echo "3 - -----------------------------------"
+
+    #     echo "3.1 - IMPERSONATE THE TERRAFORM ACCOUNT gcloud config set auth/impersonate_service_account org-terraform@cft-seed-fe85.iam.gserviceaccount.com"
+    #     gcloud config set auth/impersonate_service_account org-terraform@cft-seed-fe85.iam.gserviceaccount.com
+    #     echo "3.1 - -----------------------------------"
+
+    #     echo "4 - SEE THE NEW OUTPUT FOR gcloud auth list"
+    #     gcloud auth list
+    #     echo "4 - -----------------------------------"
     
     cd ../1-org/envs/shared || exit 44
     # cd "./envs/${branchname}" || exit 44
