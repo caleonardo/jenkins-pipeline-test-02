@@ -19,14 +19,14 @@ pipeline {
           '''
         }
     }
-    //stage('TF validate') {
-    // steps {
-    //      sh '''
-    //      cd build
-    //      ./tf-wrapper.sh validate $BRANCH_NAME $POLICY_REPO
-    //      '''
-    //    }
-    //}
+    stage('TF validate') {
+      steps {
+          sh '''
+          cd build
+          ./tf-wrapper.sh validate $BRANCH_NAME $POLICY_REPO
+          '''
+        }
+    }
     stage('TF apply') {
       steps {
           sh '''
