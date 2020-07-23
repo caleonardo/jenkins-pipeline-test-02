@@ -40,7 +40,7 @@ tf_validate() {
     echo "https://github.com/forseti-security/policy-library/blob/master/docs/user_guide.md#how-to-use-terraform-validator"
   else
     terraform show -json "${branchname}.tfplan" > "${branchname}.json" || exit 32
-    terraform-validator-linux-amd64 validate "${branchname}.json" --policy-path="${policyrepo}" || exit 33
+    ${tf_validator_path} validate "${branchname}.json" --policy-path="${policyrepo}" || exit 33
   fi
 }
 
