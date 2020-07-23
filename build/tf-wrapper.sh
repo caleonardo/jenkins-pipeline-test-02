@@ -70,13 +70,21 @@ case "$1" in
     echo "      At environment: ${branchname} "
     echo "**************************************************"
 
-    echo "WHAT DIRECTORY ARE WE IN?"
+    echo "1 - WHAT DIRECTORY ARE WE IN?"
     echo "`pwd`"
     echo "1 - -----------------------------------"
     
-    echo "SEE THE OUTPUT FOR gcloud auth list"
+    echo "2 - SEE THE OUTPUT FOR gcloud auth list"
     gcloud auth list
     echo "2 - -----------------------------------"
+    
+    echo "3 - CHANGE THE ACCOUT WITH gcloud config set account org-terraform@cft-seed-fe85.iam.gserviceaccount.com"
+    gcloud config set account org-terraform@cft-seed-fe85.iam.gserviceaccount.com
+    echo "3 - -----------------------------------"
+
+    echo "4 - SEE THE NEW OUTPUT FOR gcloud auth list"
+    gcloud auth list
+    echo "4 - -----------------------------------"
     
     cd ../1-org/envs/shared || exit 44
     # cd "./envs/${branchname}" || exit 44
