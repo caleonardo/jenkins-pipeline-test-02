@@ -51,7 +51,8 @@ case "$1" in
     echo "      At environment: ${branchname} "
     echo "***************************************************"
 
-    cd "./envs/${branchname}" || exit 44
+    cd ../1-org/envs/shared || exit 44
+    # cd "./envs/${branchname}" || exit 44
 
     if [ ! -d ".terraform" ]; then
       tf_init
